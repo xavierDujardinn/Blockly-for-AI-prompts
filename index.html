@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prompt Builder - Responsive</title>
+    <script src="https://unpkg.com/blockly/blockly.min.js"></script>
+    <script src="https://unpkg.com/blockly/javascript_compressed.js"></script>
+    
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+
+    <div class="main-container">
+        <div id="blocklyArea">
+            <div id="blocklyDiv"></div>
+        </div>
+
+        <div id="outputDiv">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h2>Prompt Généré</h2>
+                <button id="copyBtn" class="btn-copy">Copier le prompt</button>
+            </div>
+            <p>Emboîtes les blocs pour voir le résultat :</p>
+            <pre id="promptResult">Le prompt s'affichera ici...</pre>
+        </div>
+    </div>
+
+    <script src="app/blocks/ident.js"></script>
+    <script src="app/blocks/rule.js"></script>
+    <script src="app/blocks/content.js"></script>
+    <script src="app/blocks/postcheck.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/copy.js"></script>
+</body>
+</html>

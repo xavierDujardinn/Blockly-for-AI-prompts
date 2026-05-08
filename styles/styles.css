@@ -1,0 +1,70 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.main-container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+
+#blocklyArea {
+    flex: 4;
+    position: relative;
+    border-right: 2px solid #ccc;
+}
+
+#blocklyDiv {
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+}
+
+#outputDiv {
+    flex: 1;
+    background: #f4f4f9;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+pre {
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    flex-grow: 1;
+}
+
+.btn-copy {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.btn-copy:hover {
+    background-color: #45a049;
+}
+
+.btn-copy:active {
+    transform: scale(0.95);
+}
+
+
+.btn-copy.success {
+    background-color: #2196F3;
+}
