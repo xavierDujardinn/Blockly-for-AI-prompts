@@ -68,3 +68,28 @@ pre {
 .btn-copy.success {
     background-color: #2196F3;
 }
+
+.btn-help {
+    background-color: #5e73a6; /* Couleur bleutée pour l'info */
+    color: white;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%; /* Bouton rond */
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-help:hover {
+    background-color: #4a5c85;
+    transform: scale(1.1);
+}
+
+.btn-help:active {
+    transform: scale(0.95);
+}

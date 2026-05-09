@@ -65,7 +65,7 @@ javascript.javascriptGenerator.forBlock['RULE:OUTPUT_STYLE'] = function(block) {
   const tone = block.getFieldValue('TONE').toLowerCase();
   const style = block.getFieldValue('STYLE').toLowerCase();
   const clarity = block.getFieldValue('CLARITY') === 'TRUE' ? 'true' : 'false';
-  const format = block.getFieldValue('FORMAT').toLowerCase().replace('_', ' ');
+  const format = block.getFieldValue('FORMAT').toLowerCase();
   
   let code = "[RULE:OUTPUT_STYLE]\n";
   code += "tone = " + tone + "\n";

@@ -5,7 +5,8 @@
     <script src="https://unpkg.com/blockly/blockly.min.js"></script>
     <script src="https://unpkg.com/blockly/javascript_compressed.js"></script>
     
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/tutorial.css">
 </head>
 <body>
 
@@ -15,8 +16,9 @@
         </div>
 
         <div id="outputDiv">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
                 <h2>Prompt Généré</h2>
+                <button id="helpBtn" class="btn-help" onclick="startTutorial()">?</button>
                 <button id="copyBtn" class="btn-copy">Copier le prompt</button>
             </div>
             <p>Emboîtes les blocs pour voir le résultat :</p>
@@ -29,6 +31,7 @@
     <script src="app/blocks/content.js"></script>
     <script src="app/blocks/postcheck.js"></script>
     <script src="app/app.js"></script>
+    <script src="app/tutorial.js"></script>
     <script src="app/copy.js"></script>
 </body>
 </html>
