@@ -15,7 +15,7 @@ javascript.javascriptGenerator.forBlock['CONTENT'] = function(block) {
   
   if (!branch.trim()) {
     block.setWarningText("La section CONTENT ne peut pas être vide ! Ajoute un contexte ou une tâche.");
-    return '[CONTENT]\n# ERREUR : Section vide\n';
+    return '[CONTENT]\n<span class="warning"># ERREUR : Section vide\n</span>';
   } else {
     block.setWarningText(null);
   }
@@ -23,11 +23,12 @@ javascript.javascriptGenerator.forBlock['CONTENT'] = function(block) {
   return '[CONTENT]\n' + branch;
 };
 
+const CONTEXT_DEFAULT_TEXT = "contexte";
 Blockly.Blocks['CONTENT:CONTEXT'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("Contexte :")
-        .appendField(new Blockly.FieldTextInput("contexte"), "CONTEXT_TEXT");
+        .appendField(new Blockly.FieldTextInput(CONTEXT_DEFAULT_TEXT), "CONTEXT_TEXT");
     
     this.setPreviousStatement(true, "CONTENT_INNER");
     this.setNextStatement(true, "CONTENT_INNER");
@@ -39,14 +40,19 @@ Blockly.Blocks['CONTENT:CONTEXT'] = {
 javascript.javascriptGenerator.forBlock['CONTENT:CONTEXT'] = function(block) {
   const context = block.getFieldValue('CONTEXT_TEXT');
   
-  return "[CONTENT:CONTEXT]\n" + context + "\n\n";
+  if (block.getFieldValue('CONTEXT_TEXT').trim() === CONTEXT_DEFAULT_TEXT) {
+    return `<span class=\"warning\"># ERREUR :donne une valeur au contexte</span>\n`;
+  } else {
+    return `[CONTENT:CONTEXT]\n` + context + `\n\n`;
+  }
 };
 
+const TASK_DEFAULT_TEXT = "tâche";
 Blockly.Blocks['CONTENT:TASK'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("Tâche :")
-        .appendField(new Blockly.FieldTextInput("tâche"), "TASK_TEXT");
+        .appendField(new Blockly.FieldTextInput(TASK_DEFAULT_TEXT), "TASK_TEXT");
     
     this.setPreviousStatement(true, ["CONTENT_INNER", "TASK_CHAIN"]);
     this.setNextStatement(true, "TASK_CHAIN");
@@ -65,5 +71,9 @@ javascript.javascriptGenerator.forBlock['CONTENT:TASK'] = function(block) {
     header = "[CONTENT:TASK]:\n";
   }
 
-  return `${header}\n${task}\n\n`;
+  if (block.getFieldValue('TASK_TEXT').trim() === TASK_DEFAULT_TEXT) {
+    return `${header}<span class=\"warning\"># ERREUR :donne une valeur à la tâche</span>\n\n`
+  } else {
+    return `${header}\n${task}\n\n`;
+  }
 };

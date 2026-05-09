@@ -15,7 +15,7 @@ javascript.javascriptGenerator.forBlock['RULE'] = function(block) {
   
   if (!branch.trim()) {
     block.setWarningText("La section RULE ne peut pas être vide ! Ajoute un style de sortie ou une audience cible.");
-    return '[RULE]\n# ERREUR : Section vide\n';
+    return '[RULE]\n<span class="warning"># ERREUR : Section vide\n</span>';
   } else {
     block.setWarningText(null);
   }
@@ -76,11 +76,13 @@ javascript.javascriptGenerator.forBlock['RULE:OUTPUT_STYLE'] = function(block) {
   return code;
 };
 
+const AUDIENCE_DEFAULT_TEXT = "audience";
+
 Blockly.Blocks['RULE:AUDIENCE'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("Audience :")
-        .appendField(new Blockly.FieldTextInput("audience"), "AUDIENCE_TEXT");
+        .appendField(new Blockly.FieldTextInput(AUDIENCE_DEFAULT_TEXT), "AUDIENCE_TEXT");
     
     this.setPreviousStatement(true, "RULE_INNER");
     this.setNextStatement(true, "RULE_INNER");
@@ -92,5 +94,9 @@ Blockly.Blocks['RULE:AUDIENCE'] = {
 javascript.javascriptGenerator.forBlock['RULE:AUDIENCE'] = function(block) {
   const audience = block.getFieldValue('AUDIENCE_TEXT');
 
-  return "[RULE:AUDIENCE]\n" + audience + "\n\n";
+  if (block.getFieldValue('AUDIENCE_TEXT').trim() === AUDIENCE_DEFAULT_TEXT) {
+    return `<span class=\"warning\"># ERREUR :donne une valeur à l'audience</span>\n`;
+  } else {
+    return `[RULE:AUDIENCE]\n` + audience + `\n\n`;
+  }
 };

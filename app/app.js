@@ -42,11 +42,20 @@ initialBlock.render();
 initialBlock.moveBy(20, 20);
 initialBlock.setDeletable(false);
 
+let promptHasErrors = false;
+
 // Update prompt on workspace changes
 function updatePrompt(event) {
   const code = javascript.javascriptGenerator.workspaceToCode(workspace);
-  document.getElementById('promptResult').innerText = code;
+  document.getElementById('promptResult').innerHTML = code;
 
+  if (code.includes('class="warning"')) {
+    promptHasErrors = true;
+  } else {
+    promptHasErrors = false;
+  }
+
+  checkForWarnings(code);
   updateProgressBar();
 }
 workspace.addChangeListener(updatePrompt);

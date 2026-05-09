@@ -55,7 +55,7 @@ javascript.javascriptGenerator.forBlock['IDENT'] = function(block) {
   let branch = javascript.javascriptGenerator.statementToCode(block, 'STACK');
   if (!branch.trim()) {
     block.setWarningText("La section IDENT ne peut pas être vide ! Ajoute un des éléments pour faire ton beau prompt.");
-    return '[IDENT]\n# ERREUR : Section vide\n';
+    return '[IDENT]\n<span class="warning"># ERREUR : Section vide</span>\n';
   } else {
     block.setWarningText(null);
   }

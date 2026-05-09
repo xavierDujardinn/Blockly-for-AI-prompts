@@ -18,3 +18,16 @@ document.getElementById('copyBtn').addEventListener('click', function() {
         alert("Erreur lors de la copie.");
     });
 });
+
+const checkForWarnings = (code) => {
+    const btn = document.getElementById('copyBtn');
+    const textElement = document.getElementById('btn-copy-sidetext');
+    if (code.includes('class="warning"')) {
+        btn.classList.add('btn-copy-warning');
+        textElement.innerText = "Vérifie ton prompt !";
+    } 
+    else {
+        btn.classList.remove('btn-copy-warning');
+        textElement.innerText = "";
+    }
+}

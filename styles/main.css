@@ -64,6 +64,35 @@ pre {
     transform: scale(0.95);
 }
 
+.btn-copy-warning {
+    background-color: #f44336;
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.btn-copy-warning:hover {
+    background-color: #d32f2f;
+}
+
+.btn-copy-warning:active {
+    transform: scale(0.95);
+}
+
+#btn-copy-sidetext {
+    background-color: transparent;
+    color: #f44336;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 10px;
+}
 
 .btn-copy.success {
     background-color: #2196F3;
@@ -92,4 +121,8 @@ pre {
 
 .btn-help:active {
     transform: scale(0.95);
+}
+
+.warning {
+    color:red;
 }
