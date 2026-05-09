@@ -1,7 +1,7 @@
 const tutorialSteps = [
     {
         title: "Bienvenue dans le Prompt Builder",
-        text: "Cet outil est là pour t'apprendre à structurer tes prompt pour améliorer la pertinence des réponses de l'IA.\nCe tutoriel t'expliqueras les différents blocs et comment les utiliser pour créer des prompts efficaces.",
+        text: "Cet outil est là pour t'apprendre à structurer tes prompt pour améliorer la pertinence des réponses de l'IA.\nCe tutoriel t'expliquera les différents blocs et comment les utiliser pour créer des prompts efficaces.",
     },
     {
         title: "Bloc IDENT",
@@ -20,7 +20,7 @@ const tutorialSteps = [
     },
     {
         title: "Bloc de post conditions",
-        text: "Ce dernier bloc permet d'ajouter des contraintes de vérification à l'IA. En fonction des conditions émises, il est possible de demander à l'IA de revoir son raisonnement où même de supprimer une partie de sa réponse.",
+        text: "Ce dernier bloc permet d'ajouter des contraintes de vérification à l'IA. En fonction des conditions émises, il est possible de demander à l'IA de revoir son raisonnement ou même de supprimer une partie de sa réponse.",
         image: "images/postchecks.png"
     },
     {
