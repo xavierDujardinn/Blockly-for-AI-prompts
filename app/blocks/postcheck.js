@@ -1,3 +1,5 @@
+const POSTCHECK_DEFAULT_TEXT = "condition";
+
 Blockly.Blocks['POSTCHECK'] = {
   init: function() {
     this.appendDummyInput()
@@ -5,7 +7,7 @@ Blockly.Blocks['POSTCHECK'] = {
     
     this.appendDummyInput()
         .appendField("Si")
-        .appendField(new Blockly.FieldTextInput("condition"), "CONDITION_TEXT")
+        .appendField(new Blockly.FieldTextInput(POSTCHECK_DEFAULT_TEXT), "CONDITION_TEXT")
         .appendField("alors,")
         .appendField(new Blockly.FieldDropdown([
             ["réaliser une révision", "REVISION"], 
@@ -30,6 +32,10 @@ javascript.javascriptGenerator.forBlock['POSTCHECK'] = function(block) {
   if (!previousBlock || previousBlock.type !== 'POSTCHECK') {
     header = "[POSTCHECK]:\n";
   }
-  
-  return `${header}If ${condition}, flag for ${action.toLowerCase().replace('_', ' ')}.\n`;
+
+  if (block.getFieldValue('CONDITION_TEXT').trim() === POSTCHECK_DEFAULT_TEXT) {
+    return `${header}<span class=\"warning\"># ERREUR :donne une valeur à la condition</span>\n\n`
+  } else {
+    return `${header}If ${condition}, flag for ${action.toLowerCase().replace('_', ' ')}.\n\n`;
+  }
 };
