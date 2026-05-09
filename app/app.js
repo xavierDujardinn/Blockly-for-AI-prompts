@@ -46,6 +46,8 @@ initialBlock.setDeletable(false);
 function updatePrompt(event) {
   const code = javascript.javascriptGenerator.workspaceToCode(workspace);
   document.getElementById('promptResult').innerText = code;
+
+  updateProgressBar();
 }
 workspace.addChangeListener(updatePrompt);
 
@@ -54,3 +56,30 @@ window.addEventListener('resize', function() {
     Blockly.svgResize(workspace);
 }, false);
 Blockly.svgResize(workspace);
+
+// Method to update the progress bar
+const updateProgressBar = () => {
+    const allBlocks = workspace.getAllBlocks(false);
+    const types = allBlocks.map(b => b.type);
+    
+    let score = 0;
+    
+    if (types.includes('IDENT')) score += 10;
+    if (types.includes('RULE:OUTPUT_STYLE')) score += 20;
+    if (types.includes('RULE:AUDIENCE')) score += 20;
+    if (types.includes('CONTENT:CONTEXT')) score += 20;
+    if (types.includes('CONTENT:TASK')) score += 20;
+    if (types.includes('POSTCHECK')) score += 10;
+
+    const bar = document.getElementById('progressBar');
+    const text = document.getElementById('progressText');
+    
+    bar.style.width = score + '%';
+    text.innerText = score + '%';
+
+    if (score === 100) {
+        bar.style.backgroundColor = '#4CAF50';
+    } else {
+        bar.style.backgroundColor = '#2196F3';
+    }
+}

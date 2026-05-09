@@ -19,10 +19,21 @@
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
                 <h2>Prompt Généré</h2>
                 <button id="helpBtn" class="btn-help" onclick="startTutorial()">?</button>
+            </div>
+            <div class="progress-container" style="margin-bottom: 15px;">
+                    <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 5px;">
+                        <span>Complétude du prompt</span>
+                        <span id="progressText">0%</span>
+                    </div>
+                    <div style="background-color: #e0e0e0; border-radius: 10px; height: 10px; width: 100%; overflow: hidden;">
+                        <div id="progressBar" style="background-color: #4CAF50; width: 0%; height: 100%; transition: width 0.5s ease-in-out;"></div>
+                    </div>
+                </div>
+            <p>Emboîtes les blocs pour voir le résultat !</p>
+            <pre id="promptResult">Le prompt s'affichera ici...</pre>
+            <div style="margin-top: 15px; display: flex; justify-content: flex-end;">
                 <button id="copyBtn" class="btn-copy">Copier le prompt</button>
             </div>
-            <p>Emboîtes les blocs pour voir le résultat :</p>
-            <pre id="promptResult">Le prompt s'affichera ici...</pre>
         </div>
     </div>
 
