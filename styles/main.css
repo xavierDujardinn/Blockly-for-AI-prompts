@@ -126,3 +126,27 @@ pre {
 .warning {
     color:red;
 }
+
+.btn-clear {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-clear:hover {
+    background-color: #d32f2f;
+    transform: scale(1.1);
+}
+
+.btn-clear:active {
+    transform: scale(0.95);
+}

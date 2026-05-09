@@ -35,13 +35,6 @@ const workspace = Blockly.inject('blocklyDiv', {
 // Remove indentation for generated text
 javascript.javascriptGenerator.INDENT = '';
 
-// Initialize workspace with a default IDENT block
-const initialBlock = workspace.newBlock('IDENT');
-initialBlock.initSvg();
-initialBlock.render();
-initialBlock.moveBy(20, 20);
-initialBlock.setDeletable(false);
-
 let promptHasErrors = false;
 
 // Update prompt on workspace changes
@@ -90,5 +83,24 @@ const updateProgressBar = () => {
         bar.style.backgroundColor = '#4CAF50';
     } else {
         bar.style.backgroundColor = '#2196F3';
+    }
+}
+
+// Initialize workspace with a default IDENT block
+const createInitialBlock = () => {
+  const initialBlock = workspace.newBlock('IDENT');
+  initialBlock.initSvg();
+  initialBlock.render();
+  initialBlock.moveBy(20, 20);
+  initialBlock.setDeletable(false);
+}
+// Call method instantly
+createInitialBlock();
+
+// Method to clear the workspace
+const clearWorkspace = () => {
+    if (confirm("Es-tu sûr de vouloir supprimer tous les blocs ?")) {
+        workspace.clear();
+        createInitialBlock();
     }
 }
