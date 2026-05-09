@@ -30,7 +30,7 @@ javascript.javascriptGenerator.forBlock['POSTCHECK'] = function(block) {
   let header = "";
   
   if (!previousBlock || previousBlock.type !== 'POSTCHECK') {
-    header = "[POSTCHECK]:\n";
+    header = "[POSTCHECK]\n";
   }
 
   if (block.getFieldValue('CONDITION_TEXT').trim() === POSTCHECK_DEFAULT_TEXT) {

@@ -68,7 +68,7 @@ javascript.javascriptGenerator.forBlock['CONTENT:TASK'] = function(block) {
   let header = "";
   
   if (!previousBlock || previousBlock.type !== 'CONTENT:TASK') {
-    header = "[CONTENT:TASK]:\n";
+    header = "[CONTENT:TASK]\n";
   }
 
   if (block.getFieldValue('TASK_TEXT').trim() === TASK_DEFAULT_TEXT) {
