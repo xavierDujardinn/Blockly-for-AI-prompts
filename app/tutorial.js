@@ -85,4 +85,3 @@ const startTutorial = () => {
     currentStep = 0;
     showStep(0);
 }
-
